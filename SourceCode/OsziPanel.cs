@@ -584,11 +584,12 @@ namespace OsziWaveformAnalyzer
 
             int s32_VisibleSamples = ms32_DispEnd - ms32_DispStart;
 
-            mi_LabelInfo.Text = String.Format("First Sample: {0}  Screen Interval: {1}  Total Samples: {2:N0}  Total Duration: {3}  Sample Distance: {4}", 
+            mi_LabelInfo.Text = String.Format("First Sample: {0}  Screen Interval: {1}  Total Samples: {2:N0}  Total Duration: {3}  Sample Distance: {4}  Sample Frequency: {5}",
                                               mi_Capture.FormatInterval(ms32_DispStart),
                                               mi_Capture.FormatInterval(s32_VisibleSamples),
                                               s32_TotSamples, mi_Capture.FormatInterval(s32_TotSamples),
-                                              Utils.FormatTimePico(mi_Capture.ms64_SampleDist));
+                                              Utils.FormatTimePico(mi_Capture.ms64_SampleDist),
+                                              Utils.FormatFrequency((decimal)(Utils.PICOS_PER_SECOND / mi_Capture.ms64_SampleDist)));
 
             mi_LabelDispSamples.Text = String.Format("{0:N0} samples", mi_Capture.ms32_Samples / ms32_DispSteps);
 
