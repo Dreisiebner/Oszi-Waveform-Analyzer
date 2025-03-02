@@ -534,7 +534,7 @@ namespace Platform
 
                 // "C:\\Program Files\\Mozilla Firefox\\firefox.exe" -osint -url "%1"
                 String s_CmdLine = GetAssociatedProgram(".htm");
-                s_CmdLine = s_CmdLine.Replace("%1", s_URL);
+                s_CmdLine = s_CmdLine.Replace("%1", "\"" + s_URL + "\"");
 
                 ProcessStartInfo k_Info = new ProcessStartInfo(s_CmdLine, "");
                 k_Info.UseShellExecute = false;
